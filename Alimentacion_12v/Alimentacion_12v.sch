@@ -94,7 +94,7 @@ U 1 1 5C91111D
 P 4300 3800
 F 0 "C1" H 4415 3846 50  0000 L CNN
 F 1 "330nF" H 4415 3755 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm" H 4338 3650 50  0001 C CNN
+F 2 "Capacitor_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm" H 4338 3650 50  0001 C CNN
 F 3 "~" H 4300 3800 50  0001 C CNN
 	1    4300 3800
 	1    0    0    -1  
@@ -419,7 +419,7 @@ U 1 1 5C91C5DF
 P 5450 5350
 F 0 "RV1" H 5380 5396 50  0000 R CNN
 F 1 "5K" H 5380 5305 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Alps_RK09L_Single_Horizontal" H 5450 5350 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Alps_RK163_Single_Horizontal" H 5450 5350 50  0001 C CNN
 F 3 "~" H 5450 5350 50  0001 C CNN
 	1    5450 5350
 	1    0    0    -1  

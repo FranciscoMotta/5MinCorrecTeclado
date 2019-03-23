@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source D:\Electronica\5Minutos-de-Miercoles\Alimentacion_12v\Alimentacion_12v.sch)
-    (date "22/03/2019 07:56:27")
+    (date "23/03/2019 08:41:40")
     (tool "Eeschema (5.0.0)")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -44,7 +44,7 @@
       (tstamp 5C91103D))
     (comp (ref C1)
       (value 330nF)
-      (footprint Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm)
+      (footprint Capacitor_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm)
       (datasheet ~)
       (libsource (lib Device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names /) (tstamps /))
@@ -128,7 +128,7 @@
       (tstamp 5C91B1E4))
     (comp (ref RV1)
       (value 5K)
-      (footprint Potentiometer_THT:Potentiometer_Alps_RK09L_Single_Horizontal)
+      (footprint Potentiometer_THT:Potentiometer_Alps_RK163_Single_Horizontal)
       (datasheet ~)
       (libsource (lib Device) (part R_POT) (description Potentiometer))
       (sheetpath (names /) (tstamps /))
