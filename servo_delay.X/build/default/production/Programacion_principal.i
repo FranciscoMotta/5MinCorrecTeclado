@@ -1,4 +1,4 @@
-# 1 "5Min_Progra.c"
+# 1 "Programacion_principal.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "5Min_Progra.c" 2
-
-
-
-
-
-
-
-
+# 1 "Programacion_principal.c" 2
+# 24 "Programacion_principal.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5629,27 +5622,60 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "5Min_Progra.c" 2
+# 24 "Programacion_principal.c" 2
 
 # 1 "./Configuracion.h" 1
-# 10 "5Min_Progra.c" 2
+# 25 "Programacion_principal.c" 2
 
+void Timer0_Init(void);
+
+int a = 0;
+
+void Timer0_Init(void){
+    INTCONbits.GIE = 0;
+    T0CONbits.T0CS = 0;
+    T0CONbits.PSA = 0;
+    T0CONbits.T0PS = 0b010;
+    T0CONbits.T08BIT = 0;
+    T0CONbits.TMR0ON = 1;
+    INTCONbits.TMR0IF = 0;
+    INTCONbits.TMR0IE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
+}
 
 void main(void) {
-    ADCON1bits.PCFG = 0xf;
-    TRISAbits.RA0 = 0;
-    TRISDbits.RD0 = 0;
-    TRISDbits.RD1 = 0;
-    TRISDbits.RD7 = 0;
-    TRISCbits.RC0 = 1;
+    TRISD = 0xf0;
     LATD = 0;
+    Timer0_Init();
+    TMR0L = 0x0E;
+    TMR0H = 0xD4;
     while(1){
-        LATDbits.LATD0 = 1;
-        if(PORTCbits.RC0 == 1){
-            LATDbits.LATD1 = 1;
-            LATDbits.LATD7 = 1;
 
-            LATDbits.LATD7 = 0;
+    }
+}
+
+void __attribute__((picinterrupt(("")))) Timer_int(void){
+    if(INTCONbits.TMR0IF){
+        if(PORTDbits.RD4){
+            LATDbits.LATD1 = 1;
+            _delay((unsigned long)((2)*(20000000L/4000.0)));
+            LATDbits.LATD1 = 0;
+            TMR0L = 0x0E;
+            TMR0H = 0xD4;
+
+            INTCONbits.TMR0IF = 0;
         }
+        else{
+            LATDbits.LATD1 = 1;
+            _delay((unsigned long)((1)*(20000000L/4000.0)));
+            LATDbits.LATD1 = 0;
+            TMR0L = 0x9D;
+            TMR0H = 0xD1;
+
+
+            INTCONbits.TMR0IF = 0;
+        }
+
     }
 }
