@@ -138,161 +138,163 @@ void LCD_init() {
 }
 
 char comparador(char comp) {
+    char variableDeRetorno = 0x00;
     switch (comp) {
         case 0X1C:
-            return 'A';
+            variableDeRetorno = 'A';
             break;
         case 0X32:
-            return 'B';
+            variableDeRetorno = 'B';
             break;
         case 0X21:
-            return 'C';
+            variableDeRetorno = 'C';
             break;
         case 0X23:
-            return 'D';
+            variableDeRetorno = 'D';
             break;
         case 0X24:
-            return 'E';
+            variableDeRetorno = 'E';
             break;
         case 0X2B:
-            return 'F';
+            variableDeRetorno = 'F';
             break;
         case 0X34:
-            return 'G';
+            variableDeRetorno = 'G';
             break;
         case 0X33:
-            return 'H';
+            variableDeRetorno = 'H';
             break;
         case 0X43:
-            return 'I';
+            variableDeRetorno = 'I';
             break;
         case 0X3B:
-            return 'J';
+            variableDeRetorno = 'J';
             break;
         case 0X42:
-            return 'K';
+            variableDeRetorno = 'K';
             break;
         case 0X4B:
-            return 'L';
+            variableDeRetorno = 'L';
             break;
         case 0X3A:
-            return 'M';
+            variableDeRetorno = 'M';
             break;
         case 0X31:
-            return 'N';
+            variableDeRetorno = 'N';
             break;
         case 0X44:
-            return 'O';
+            variableDeRetorno = 'O';
             break;
         case 0X4D:
-            return 'P';
+            variableDeRetorno = 'P';
             break;
         case 0X15:
-            return 'Q';
+            variableDeRetorno = 'Q';
             break;
         case 0X2D:
-            return 'R';
+            variableDeRetorno = 'R';
             break;
         case 0X1B:
-            return 'S';
+            variableDeRetorno = 'S';
             break;
         case 0X2C:
-            return 'T';
+            variableDeRetorno = 'T';
             break;
         case 0X3C:
-            return 'U';
+            variableDeRetorno = 'U';
             break;
         case 0X2A:
-            return 'V';
+            variableDeRetorno = 'V';
             break;
         case 0X1D:
-            return 'W';
+            variableDeRetorno = 'W';
             break;
         case 0X22:
-            return 'X';
+            variableDeRetorno = 'X';
             break;
         case 0X35:
-            return 'Y';
+            variableDeRetorno = 'Y';
             break;
         case 0X1A:
-            return 'Z';
+            variableDeRetorno = 'Z';
             break;
         case 0X29:
-            return ' ';
+            variableDeRetorno = ' ';
             break;
         case 0X16:
-            return '1';
+            variableDeRetorno = '1';
             break;
         case 0X1E:
-            return '2';
+            variableDeRetorno = '2';
             break;
         case 0X26:
-            return '3';
+            variableDeRetorno = '3';
             break;
         case 0X25:
-            return '4';
+            variableDeRetorno = '4';
             break;
         case 0X2E:
-            return '5';
+            variableDeRetorno = '5';
             break;
         case 0X36:
-            return '6';
+            variableDeRetorno = '6';
             break;
         case 0X3D:
-            return '7';
+            variableDeRetorno = '7';
             break;
         case 0X3E:
-            return '8';
+            variableDeRetorno = '8';
             break;
         case 0X46:
-            return '9';
+            variableDeRetorno = '9';
             break;
         case 0X45:
-            return '0';
+            variableDeRetorno = '0';
             break;
         case 0X41:
-            return ',';
+            variableDeRetorno = ',';
             break;
         case 0x49:
-            return '.';
+            variableDeRetorno = '.';
             break;
         case 0X4E:
-            return '?';
+            variableDeRetorno = '?';
             break;
         case 0X70:
-            return '0';
+            variableDeRetorno = '0';
             break;
         case 0X69:
-            return '1';
+            variableDeRetorno = '1';
             break;
         case 0X72:
-            return '2';
+            variableDeRetorno = '2';
             break;
         case 0X7A:
-            return '3';
+            variableDeRetorno = '3';
             break;
         case 0X6B:
-            return '4';
+            variableDeRetorno = '4';
             break;
         case 0X73:
-            return '5';
+            variableDeRetorno = '5';
             break;
         case 0X74:
-            return '6';
+            variableDeRetorno = '6';
             break;
         case 0X6C:
-            return '7';
+            variableDeRetorno = '7';
             break;
         case 0X75:
-            return '8';
+            variableDeRetorno = '8';
             break;
         case 0X7D:
-            return '9';
+            variableDeRetorno = '9';
             break;
         default:
-            return ' ';
+            variableDeRetorno = ' ';
             break;
     }
+    return variableDeRetorno;
 }
 char linea = 0x80;
 
@@ -300,7 +302,7 @@ void main(void) {
     confi_puertos();
     RCONbits.IPEN = 0;
     INTCON2bits.INTEDG0 = 0; //Las interrupciones se activan por flanco de bajada 
-    INTCON2bits.RBPU = 0; //La interrupcion será procedente del puerto B
+    INTCON2bits.RBPU = 0; //La interrupcion serï¿½ procedente del puerto B
     INTCONbits.INT0IE = 1; // Habilitamos las interrupciones 
     INTCONbits.GIE = 1; //Activamos las interrupciones globales 
     LCD_init();
@@ -374,7 +376,7 @@ void main(void) {
         }
     }
     }
-    return;
+    variableDeRetorno =;
 }
 
 void __interrupt() RUT_INT0(void) {
